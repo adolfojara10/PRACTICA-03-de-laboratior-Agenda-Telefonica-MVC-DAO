@@ -12,21 +12,26 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
+ * clase TelefonoDAOImpl.
+ *
+ * para implementar los metodos de la inteface ITelefono.
  *
  * @author Adolfo
  */
-public class TelefonoDAOImpl implements ITelefonoDAO{
-    
+public class TelefonoDAOImpl implements ITelefonoDAO {
+
+    //listad e telefonos de la base de datos
     private List<Telefono> listaTelefonos;
 
+    //metodo constructor
     public TelefonoDAOImpl() {
         listaTelefonos = new ArrayList<>();
-   }
+    }
 
     @Override
     public void create(Telefono telefono) {
         listaTelefonos.add(telefono);
-   }
+    }
 
     @Override
     public Telefono read(int id) {
@@ -34,13 +39,13 @@ public class TelefonoDAOImpl implements ITelefonoDAO{
             if (telefono.getCodigo() == id) {
                 return telefono;
             }
-       }
+        }
         return null;
     }
 
     @Override
     public void update(Telefono telefono) {
-       for (int i = 0; i < listaTelefonos.size(); i++) {
+        for (int i = 0; i < listaTelefonos.size(); i++) {
             Telefono c = listaTelefonos.get(i);
             if (c.getCodigo() == telefono.getCodigo()) {
                 listaTelefonos.set(i, telefono);
@@ -52,7 +57,7 @@ public class TelefonoDAOImpl implements ITelefonoDAO{
 
     @Override
     public void delete(Telefono telefono) {
-       Iterator<Telefono> it = listaTelefonos.iterator();
+        Iterator<Telefono> it = listaTelefonos.iterator();
         while (it.hasNext()) {
             Telefono d = it.next();
             if (d.getCodigo() == telefono.getCodigo()) {

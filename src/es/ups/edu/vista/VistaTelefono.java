@@ -11,17 +11,28 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
+ * clase VistaTelefono.
+ * 
+ * distintas opciones que va a tener el usuario para escribir diferentes cosas.
+ * para crear, editar, eliminar y eliminar un telefono. Para buscar un telefono,
+ * imprimir un telefono y telefonos.
  * @author Adolfo
  */
 public class VistaTelefono {
 
+    //Scanner
     private Scanner entrada;
-
+ //constructor
     public VistaTelefono() {
        entrada = new Scanner(System.in);
     }
 
+    /**
+     * metodo menuEditarTelefonoUsario.
+     * 
+     * para mostrar las distintas opcione cuando alguien inicia sesion
+     * @return int
+     */
    public int menuEditarTelefonoUsuario() {
         entrada = new Scanner(System.in);
         System.out.println("\nDigite la opcion que desea realizar:\n"
@@ -33,6 +44,7 @@ public class VistaTelefono {
         return opcionSesion;
     }
 
+   //para ingresar un telefono y crearlo y mandarlo
     public Telefono ingresarTelefono() {
         entrada = new Scanner(System.in);
        System.out.println("Ingresa los datos del Telefono:");
@@ -48,6 +60,7 @@ public class VistaTelefono {
         return new Telefono(codigo, numero, tipo, operadora);
     }
 
+    //para confirmar un codigo del telefono
     public int confirmarCodigo() {
         entrada = new Scanner(System.in);
         System.out.println("\nConfirme el codigo del telefono: ");
@@ -55,6 +68,7 @@ public class VistaTelefono {
         return codigo;
     }
 
+    //si pide codigo del telefono
     public int pedirCodigo() {
 
         entrada = new Scanner(System.in);
@@ -64,6 +78,7 @@ public class VistaTelefono {
         return id;
     }
 
+    //para pedir nuevos datos de un telefono anterior
     public Telefono actualizarTelefono() {
         entrada = new Scanner(System.in);
        System.out.println("\nIngrese los nuevos datos: ");
@@ -78,6 +93,8 @@ public class VistaTelefono {
 
         return new Telefono(id, numero, tipo, operadora);
     }
+    
+    //para eliminar un telefono
     public int eliminarTelefono() {
         entrada = new Scanner(System.in);
         System.out.println("Ingresa el codigo del telefono a eliminar");
@@ -85,6 +102,7 @@ public class VistaTelefono {
         return id;
     }
 
+    //para buscar un telefono
     public int buscarTelefono() {
         entrada = new Scanner(System.in);
         System.out.println("Ingresa el id de la direccion a buscar");
@@ -92,6 +110,7 @@ public class VistaTelefono {
        return id;
     }
 
+    //para imprimir los telefonos de un usuario
     public void imprimirTelefonosUsuario(Usuario usuario) {
         if (usuario.getListaTelefonos().isEmpty()) {
             System.out.println("El usuario no tiene telefonos agregados");
@@ -101,10 +120,13 @@ public class VistaTelefono {
            }
         }
     }
+    
+    //para ver un telefono
     public void verDireccion(Telefono telefono) {
         System.out.println("Datos del Cliente: " + telefono);
     }
 
+    //para ver todos los telefonos
     public void verTelefonos(List<Telefono> telefonos) {
         for (Telefono direccion : telefonos) {
             System.out.println("Datos del telefono: " + direccion);

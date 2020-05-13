@@ -18,12 +18,21 @@ import java.util.*;
 import java.util.Map;
 
 /**
+ * clase ControladorUsuario.
  *
+ * esta clase es la encargada de comunicarse tanto con la clase VistaUsuario y
+ * la clase UsuarioDAOImpl. Llama a los distintos metodos de estas clases, por
+ * se crean un objeto de cada clase dicha. Ademas se crea un objeto de la clase
+ * Usuario.
+ *
+ * @see UsuarioDAOImpl
+ * @see VistUsuario
+ * @see Usuario
  * @author Adolfo
  */
 public class ControladorUsuario {
 
-   //objetos vist
+   //objetos vista
     private VistaUsuario vistaCliente;
     private VistaTelefono vistaDireccion;
     //objetos modelo
@@ -50,6 +59,7 @@ public class ControladorUsuario {
         clienteDAO.create(cliente);
     }
 
+   //para inicar sesion
     public Usuario iniciarSesion() {
         //se obtienen los datos de contraseÃ±a y correo
         String correo = vistaCliente.iniciarSesionCorreo();
@@ -60,6 +70,8 @@ public class ControladorUsuario {
         vistaCliente.verCliente(cliente);
         return cliente;
     }
+    
+    //para buscar los telefonos del cliente
     public void buscarTelefonos(){
         String id = vistaCliente.buscarCliente();
         cliente=clienteDAO.read(id);
@@ -71,6 +83,7 @@ public class ControladorUsuario {
         }
     }
     
+    //para imprimir un usuario
     public void imprimirUsuario(){
        
         String id = vistaCliente.buscarCliente();
@@ -84,7 +97,7 @@ public class ControladorUsuario {
        
    }
     
-   //llama al DAO para obtener un cliente por el id y luego los muestra en la vista
+   //llama al DAO para obtener un cliente por la cedula o correo y luego los muestra en la vista
     public boolean verCliente() {
        String id = vistaCliente.confirmacionCedula();
         cliente = clienteDAO.read(id);
@@ -116,7 +129,7 @@ public class ControladorUsuario {
         vistaCliente.verClientes(clientes);
     }
 
-   //ejemplo de agregacion
+   //para agregar un telelfono al usuario
     public void agregarDireccion() {
        int id = vistaDireccion.confirmarCodigo();
         direccion = direccionDAO.read(id);
@@ -131,6 +144,7 @@ public class ControladorUsuario {
         
     }
 
+    //para actualizar la listade telefonos de un usuario
     public void actualizarTelefono() {
         int id = vistaDireccion.confirmarCodigo();
         direccion = direccionDAO.read(id);
@@ -146,13 +160,14 @@ public class ControladorUsuario {
 
     }
 
+    //para eliminar un telefono de la lista del usuario
     public void eliminarTelefono() {
 
         int id = vistaDireccion.confirmarCodigo();
         direccion = direccionDAO.read(id);
         if (direccion != null) {
 
-           cliente.eliminarDireccion(direccion);
+           cliente.eliminarTelefono(direccion);
             clienteDAO.update(cliente);
             vistaDireccion.imprimirTelefonosUsuario(cliente);
             direccionDAO.delete(direccion);
