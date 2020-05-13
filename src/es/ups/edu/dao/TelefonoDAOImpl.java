@@ -12,18 +12,13 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * clase TelefonoDAOImpl.
- *
- * para implementar los metodos de la inteface ITelefono.
  *
  * @author Adolfo
  */
 public class TelefonoDAOImpl implements ITelefonoDAO {
 
-    //listad e telefonos de la base de datos
     private List<Telefono> listaTelefonos;
 
-    //metodo constructor
     public TelefonoDAOImpl() {
         listaTelefonos = new ArrayList<>();
     }

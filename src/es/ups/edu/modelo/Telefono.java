@@ -10,7 +10,7 @@ package es.ups.edu.modelo;
  * @author Adolfo
  */
 public class Telefono {
-    
+
     //declaracion de atributos
     private int codigo;
     private String numero;
@@ -160,13 +160,13 @@ public class Telefono {
         }
         if (obj == null) {
             return false;
-       }
+        }
         if (getClass() != obj.getClass()) {
             return false;
         }
         final Telefono other = (Telefono) obj;
         if (this.codigo != other.codigo) {
-           return false;
+            return false;
         }
         return true;
     }

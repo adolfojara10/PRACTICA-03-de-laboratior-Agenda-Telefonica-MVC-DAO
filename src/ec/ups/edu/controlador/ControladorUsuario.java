@@ -13,26 +13,16 @@ import es.ups.edu.vista.VistaTelefono;
 import es.ups.edu.vista.VistaUsuario;
 import es.ups.edu.dao.TelefonoDAOImpl;
 import es.ups.edu.dao.UsuarioDAOImpl;
-import es.ups.edu.modelo.Usuario;
 import java.util.*;
 import java.util.Map;
 
 /**
- * clase ControladorUsuario.
  *
- * esta clase es la encargada de comunicarse tanto con la clase VistaUsuario y
- * la clase UsuarioDAOImpl. Llama a los distintos metodos de estas clases, por
- * se crean un objeto de cada clase dicha. Ademas se crea un objeto de la clase
- * Usuario.
- *
- * @see UsuarioDAOImpl
- * @see VistUsuario
- * @see Usuario
  * @author Adolfo
  */
 public class ControladorUsuario {
 
-   //objetos vista
+    //objetos vist
     private VistaUsuario vistaCliente;
     private VistaTelefono vistaDireccion;
     //objetos modelo
@@ -54,52 +44,51 @@ public class ControladorUsuario {
     }
 
     //llama al DAO para guardar un cliente
-   public void registrar() {
+    public void registrar() {
         cliente = vistaCliente.ingresarCliente();
         clienteDAO.create(cliente);
     }
 
-   //para inicar sesion
     public Usuario iniciarSesion() {
+
         //se obtienen los datos de contraseÃ±a y correo
         String correo = vistaCliente.iniciarSesionCorreo();
         String contraseña = vistaCliente.iniciarSesionContraseña();
 
         //se envian los datos y se recibe una persona
         cliente = clienteDAO.iniciarSesion(correo, contraseña);
+
         vistaCliente.verCliente(cliente);
         return cliente;
     }
-    
-    //para buscar los telefonos del cliente
-    public void buscarTelefonos(){
+
+    public void buscarTelefonos() {
         String id = vistaCliente.buscarCliente();
-        cliente=clienteDAO.read(id);
-        if(cliente!=null){
+        cliente = clienteDAO.read(id);
+        if (cliente != null) {
             vistaDireccion.imprimirTelefonosUsuario(cliente);
         } else {
             String frase = "Usuario no encontrado";
             vistaCliente.frase(frase);
         }
     }
-    
-    //para imprimir un usuario
-    public void imprimirUsuario(){
-       
+
+    public void imprimirUsuario() {
+
         String id = vistaCliente.buscarCliente();
         cliente = clienteDAO.read(id);
-        if (cliente!=null){
-           vistaCliente.verCliente(cliente);
+        if (cliente != null) {
+            vistaCliente.verCliente(cliente);
         } else {
-           String frase = "Usuario no encontrado";
+            String frase = "Usuario no encontrado";
             vistaCliente.frase(frase);
         }
-       
-   }
-    
-   //llama al DAO para obtener un cliente por la cedula o correo y luego los muestra en la vista
+
+    }
+
+    //llama al DAO para obtener un cliente por el id y luego los muestra en la vista
     public boolean verCliente() {
-       String id = vistaCliente.confirmacionCedula();
+        String id = vistaCliente.confirmacionCedula();
         cliente = clienteDAO.read(id);
         if (cliente == null) {
             String frase = "cedula no valida";
@@ -112,12 +101,11 @@ public class ControladorUsuario {
     //llama al DAO para actualizar un cliente
     public void actualizar() {
         cliente = vistaCliente.actualizarCliente();
-
         clienteDAO.update(cliente);
     }
 
     //llama al DAO para eliminar un cliente
-   public void eliminar() {
+    public void eliminar() {
         cliente = vistaCliente.eliminarCliente();
         clienteDAO.delete(cliente);
     }
@@ -129,22 +117,21 @@ public class ControladorUsuario {
         vistaCliente.verClientes(clientes);
     }
 
-   //para agregar un telelfono al usuario
+    //ejemplo de agregacion
     public void agregarDireccion() {
-       int id = vistaDireccion.confirmarCodigo();
+        int id = vistaDireccion.confirmarCodigo();
         direccion = direccionDAO.read(id);
-       if (direccion != null) {
+        if (direccion != null) {
             cliente.agregarTelefono(direccion);
             clienteDAO.update(cliente);
             vistaDireccion.imprimirTelefonosUsuario(cliente);
-        }else{
-           String frase = "Codigo erroneo";
+        } else {
+            String frase = "Codigo erroneo";
             vistaCliente.frase(frase);
         }
-        
+
     }
 
-    //para actualizar la listade telefonos de un usuario
     public void actualizarTelefono() {
         int id = vistaDireccion.confirmarCodigo();
         direccion = direccionDAO.read(id);
@@ -157,24 +144,22 @@ public class ControladorUsuario {
             String frase = "Telefono no encontrado";
             vistaCliente.frase(frase);
         }
-
     }
 
-    //para eliminar un telefono de la lista del usuario
     public void eliminarTelefono() {
 
         int id = vistaDireccion.confirmarCodigo();
         direccion = direccionDAO.read(id);
         if (direccion != null) {
 
-           cliente.eliminarTelefono(direccion);
+            cliente.eliminarDireccion(direccion);
             clienteDAO.update(cliente);
             vistaDireccion.imprimirTelefonosUsuario(cliente);
             direccionDAO.delete(direccion);
-       } else {
+        } else {
             String frase = "Codigo erroneo";
             vistaCliente.frase(frase);
-       }
+        }
     }
 
     public void salir() {
@@ -194,9 +179,9 @@ public class ControladorUsuario {
         vistaCliente.frase(frase);
     }
 
-    public void cerrarSesion(){
+    public void cerrarSesion() {
         String frase = "Sesion cerrada";
         vistaCliente.frase(frase);
-        
+
     }
 }
