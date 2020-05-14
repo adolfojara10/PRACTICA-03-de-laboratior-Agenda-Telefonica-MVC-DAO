@@ -32,7 +32,9 @@ public class Test {
         ControladorTelefono controladorTelefono = new ControladorTelefono(vistaT, telefonoDAO);
 
         int opcionMenu = 0;
+        //bucle para el menu
         do {
+            //para obtener la opcion del menu
             opcionMenu = vistaU.menu();
             switch (opcionMenu) {
                 case 1:
@@ -41,16 +43,19 @@ public class Test {
                     break;
 
                 case 2:
-
+                    
+                    //recibir un usuario
                     Usuario usuario = controladorUsuario.iniciarSesion();
 
                     if (usuario != null) {
                         int opcion = 0;
+                        //bucle para el menu cuando inicia sesion
                         do {
+                            //opcion del menu de telefonos
                             opcion = vistaT.menuEditarTelefonoUsuario();
                             switch (opcion) {
                                 case 1:
-
+                                    //crear el telefono y agregar al usuario
                                     controladorTelefono.registrar();
                                     boolean contiene = controladorUsuario.verCliente();
                                     if (contiene == true) {
@@ -58,7 +63,7 @@ public class Test {
                                     }
                                     break;
                                 case 2:
-
+                                    //para actualizar un telefono del usuario
                                     controladorTelefono.actualizar();
                                     boolean contiene2 = controladorUsuario.verCliente();
                                     if (contiene2 == true) {
@@ -67,7 +72,7 @@ public class Test {
                                     break;
 
                                 case 3:
-
+                                    //para eliminar un telefono
                                     controladorTelefono.eliminar();
                                     boolean contiene3 = controladorUsuario.verCliente();
                                     if (contiene3) {
@@ -77,7 +82,7 @@ public class Test {
                                     break;
 
                                 case 4:
-
+                                    //cerrar sesion
                                     controladorUsuario.cerrarSesion();
                                     break;
 
@@ -91,25 +96,26 @@ public class Test {
 
                     break;
                 case 3:
+                    //para buscar los telefonos de un usuario
                     controladorUsuario.buscarTelefonos();
                     break;
                 case 4:
-
+                    //para imprimir un usuario
                     controladorUsuario.imprimirUsuario();
                     break;
 
                 case 5:
-
+                    //para ver todos los clientes
                     controladorUsuario.verClientes();
                     break;
 
                 case 6:
-
+                    //para ver todos los telefonos
                     controladorTelefono.verDirecciones();
                     break;
 
                 case 7:
-
+                    //para salir del programa
                     controladorUsuario.salir();
                     break;
                 default:

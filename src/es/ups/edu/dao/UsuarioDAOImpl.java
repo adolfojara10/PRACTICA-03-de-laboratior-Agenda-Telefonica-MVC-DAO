@@ -11,7 +11,10 @@ import java.util.ArrayList;
 import java.util.*;
 
 /**
- *
+ * clase UsuarioDAOImpl.
+ * 
+ * clase que implementa la inteface IUsuarioDAO y sus metodos. Aqui son implementados
+ * 
  * @author Adolfo
  */
 public class UsuarioDAOImpl implements IUsuarioDAO {
@@ -22,11 +25,13 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
         listaUsuarios = new HashMap<>();
     }
 
+    //mandar un usuario a la base de datos
     @Override
     public void create(Usuario cliente) {
         listaUsuarios.put(cliente.getCedula(), cliente);
     }
 
+    //para buscar un usuario
     @Override
     public Usuario read(String cedula) {
         //bucle for each para buscar el usuario
@@ -45,6 +50,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
         return null;
     }
 
+    //para actualizar un usuario ya creado
     @Override
     public void update(Usuario cliente) {
         for (Map.Entry<String, Usuario> usuario2 : listaUsuarios.entrySet()) {
@@ -58,6 +64,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
     }
 
+    //para eliminar un usuario
     @Override
     public void delete(Usuario cliente) {
         for (Map.Entry<String, Usuario> usuario2 : listaUsuarios.entrySet()) {
@@ -70,6 +77,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
         }
     }
 
+    //para iniciar sesion en la cuenta del usuario
     @Override
     public Usuario iniciarSesion(String correo, String contraseña) {
         //bucle for each para recorrer los usuarios
@@ -90,6 +98,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
         return null;
     }
 
+    //devuelve todos los usuarios
     @Override
     public Map<String, Usuario> findAll() {
         return listaUsuarios;

@@ -12,7 +12,12 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- *
+ * clase VistaTelefono.
+ * 
+ * clase encargada de la impresion del submenu cuando el usuario inicia sesion.
+ * En esta se crea, edita y elimina un telefono. Se imprimen todos los telefonos,
+ * los telefonos de un usuario, se pide el codigo y se confirma el codigo.
+ * 
  * @author Adolfo
  */
 public class VistaTelefono {
@@ -23,6 +28,7 @@ public class VistaTelefono {
         entrada = new Scanner(System.in);
     }
 
+    //menu del telefono cuando inician sesion
     public int menuEditarTelefonoUsuario() {
         entrada = new Scanner(System.in);
         System.out.println("\nDigite la opcion que desea realizar:\n"
@@ -34,6 +40,7 @@ public class VistaTelefono {
         return opcionSesion;
     }
 
+    //para crear un telefono
     public Telefono ingresarTelefono() {
         entrada = new Scanner(System.in);
         System.out.println("Ingresa los datos del Telefono:");
@@ -49,6 +56,7 @@ public class VistaTelefono {
         return new Telefono(codigo, numero, tipo, operadora);
     }
 
+    //para confirmar el codigo
     public int confirmarCodigo() {
         entrada = new Scanner(System.in);
         System.out.println("\nConfirme el codigo del telefono: ");
@@ -56,6 +64,7 @@ public class VistaTelefono {
         return codigo;
     }
 
+    //pedir codigo del telefono
     public int pedirCodigo() {
 
         entrada = new Scanner(System.in);
@@ -65,6 +74,7 @@ public class VistaTelefono {
         return id;
     }
 
+    //se actualiza el telefono
     public Telefono actualizarTelefono() {
         entrada = new Scanner(System.in);
         System.out.println("\nIngrese los nuevos datos: ");
@@ -80,6 +90,7 @@ public class VistaTelefono {
         return new Telefono(id, numero, tipo, operadora);
     }
 
+    //se elimina el telefono
     public int eliminarTelefono() {
         entrada = new Scanner(System.in);
         System.out.println("Ingresa el codigo del telefono a eliminar");
@@ -87,13 +98,15 @@ public class VistaTelefono {
         return id;
     }
 
+    //se busca un telefono
     public int buscarTelefono() {
         entrada = new Scanner(System.in);
-        System.out.println("Ingresa el id de la direccion a buscar");
+        System.out.println("Ingresa el id del telefono a buscar");
         int id = entrada.nextInt();
         return id;
     }
 
+    //para imprimir los telefonos
     public void imprimirTelefonosUsuario(Usuario usuario) {
         if (usuario.getListaTelefonos().isEmpty()) {
             System.out.println("El usuario no tiene telefonos agregados");
@@ -104,10 +117,12 @@ public class VistaTelefono {
         }
     }
 
+    //para ver un telefono
     public void verDireccion(Telefono telefono) {
-        System.out.println("Datos del Cliente: " + telefono);
+        System.out.println("Datos del Telefono: " + telefono);
     }
 
+    //para imprimir todos los telefonos
     public void verTelefonos(Map<Integer, Telefono> telefonos) {
         for (Map.Entry<Integer, Telefono> telefono2 : telefonos.entrySet()) {
             int cod = telefono2.getKey();

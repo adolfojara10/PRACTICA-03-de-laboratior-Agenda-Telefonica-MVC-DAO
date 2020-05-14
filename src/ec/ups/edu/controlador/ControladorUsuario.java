@@ -17,12 +17,15 @@ import java.util.*;
 import java.util.Map;
 
 /**
- *
+ * clase ControladorUsuario.
+ * 
+ * clase que llama a la vista y al dao para crear, eliminar, obtener, actualzar
+ * un usuario. Ademas aqui se agregan, eliminan, editan telefonos de un usuario.
  * @author Adolfo
  */
 public class ControladorUsuario {
 
-    //objetos vist
+    //objetos vista
     private VistaUsuario vistaCliente;
     private VistaTelefono vistaDireccion;
     //objetos modelo
@@ -135,6 +138,7 @@ public class ControladorUsuario {
 
     }
 
+    //actualizar un telefono
     public void actualizarTelefono() {
         int id = vistaDireccion.confirmarCodigo();
         direccion = direccionDAO.read(id);
@@ -149,6 +153,7 @@ public class ControladorUsuario {
         }
     }
 
+    //elimina un telefono
     public void eliminarTelefono() {
 
         int id = vistaDireccion.confirmarCodigo();
@@ -165,6 +170,7 @@ public class ControladorUsuario {
         }
     }
 
+    //frase a imprimir de salir
     public void salir() {
 
         //creacion de la frase a ser impresa
@@ -174,6 +180,7 @@ public class ControladorUsuario {
         vistaCliente.frase(frase);
     }
 
+    //frase de numero erroneo
     public void numeroErroneo() {
 
         //creacion de la frase a ser impresa
@@ -182,6 +189,7 @@ public class ControladorUsuario {
         vistaCliente.frase(frase);
     }
 
+    //cerrar sesion
     public void cerrarSesion() {
         String frase = "Sesion cerrada";
         vistaCliente.frase(frase);

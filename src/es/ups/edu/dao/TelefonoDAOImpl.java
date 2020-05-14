@@ -12,7 +12,10 @@ import java.util.Iterator;
 import java.util.*;
 
 /**
- *
+ * clase TelefonoDAOImpl.
+ * 
+ * clase encargada de implementar los metodos de la interface ITelefonoDAO
+ * 
  * @author Adolfo
  */
 public class TelefonoDAOImpl implements ITelefonoDAO {
@@ -23,11 +26,13 @@ public class TelefonoDAOImpl implements ITelefonoDAO {
         listaTelefonos = new HashMap<>();
     }
 
+    //mandar un telefono a la base datos
     @Override
     public void create(Telefono telefono) {
         listaTelefonos.put(telefono.getCodigo(),telefono);
     }
 
+    //para devolver un telefono de la base de datos
     @Override
     public Telefono read(int id) {
         for (Map.Entry<Integer, Telefono> telefono : listaTelefonos.entrySet()) {
@@ -40,6 +45,7 @@ public class TelefonoDAOImpl implements ITelefonoDAO {
         return null;
     }
 
+    //para actualizar un telefono
     @Override
     public void update(Telefono telefono) {
         for (Map.Entry<Integer, Telefono> telefono2 : listaTelefonos.entrySet()) {
@@ -52,6 +58,7 @@ public class TelefonoDAOImpl implements ITelefonoDAO {
 
     }
 
+    //para eliminar un telefono
     @Override
     public void delete(Telefono telefono) {
         for (Map.Entry<Integer, Telefono> telefono2 : listaTelefonos.entrySet()) {
@@ -63,6 +70,7 @@ public class TelefonoDAOImpl implements ITelefonoDAO {
         }
     }
 
+    //para devolver un mapa de telefonos
     @Override
     public Map<Integer, Telefono> findAll() {
         return listaTelefonos;

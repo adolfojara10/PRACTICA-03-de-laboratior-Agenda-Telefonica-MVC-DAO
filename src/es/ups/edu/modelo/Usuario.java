@@ -8,7 +8,11 @@ package es.ups.edu.modelo;
 import java.util.*;
 
 /**
- *
+ * clase Usuario.
+ * 
+ * clase encargada de crear un objeto de tipo Usuario, Atributos: cedula, nombre,
+ * apellido, correo, contraseña, lista de telefonos. Metodo constructor que 
+ * setea todos los datos excepto por la lista de telefonos.
  * @author Adolfo
  */
 public class Usuario {
@@ -18,7 +22,7 @@ public class Usuario {
     private String apellido;
     private String correo;
     private String contraseña;
-    //atributo de agregaciÃ³n
+    //atributo de telelfonos
     private List<Telefono> listaTelefonos;
 
     //constructores
@@ -77,11 +81,12 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
+    //para obtener la lista de telefonos
     public List<Telefono> getListaTelefonos() {
         return listaTelefonos;
     }
 
-    //mÃ©todos de la agregaciÃ³n
+    //para agregar un telefono
     public void agregarTelefono(Telefono telefono) {
         listaTelefonos.add(telefono);
     }
@@ -99,11 +104,13 @@ public class Usuario {
             listaTelefonos.remove(index);
         }
     }
-
+    
+    //imprimir telefonos
     public List<Telefono> listar() {
         return listaTelefonos;
     }
-
+    
+    //buscar un telefono
     public Telefono buscar(int id) {
 
         return listaTelefonos.get(id);
