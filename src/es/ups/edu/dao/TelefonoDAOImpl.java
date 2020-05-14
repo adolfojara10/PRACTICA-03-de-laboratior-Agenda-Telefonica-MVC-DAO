@@ -9,7 +9,7 @@ import ec.ups.edu.idao.ITelefonoDAO;
 import es.ups.edu.modelo.Telefono;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  *
@@ -17,22 +17,24 @@ import java.util.List;
  */
 public class TelefonoDAOImpl implements ITelefonoDAO {
 
-    private List<Telefono> listaTelefonos;
+    private Map<Integer, Telefono> listaTelefonos;
 
     public TelefonoDAOImpl() {
-        listaTelefonos = new ArrayList<>();
+        listaTelefonos = new HashMap<>();
     }
 
     @Override
     public void create(Telefono telefono) {
-        listaTelefonos.add(telefono);
+        listaTelefonos.put(telefono.getCodigo(),telefono);
     }
 
     @Override
     public Telefono read(int id) {
-        for (Telefono telefono : listaTelefonos) {
-            if (telefono.getCodigo() == id) {
-                return telefono;
+        for (Map.Entry<Integer, Telefono> telefono : listaTelefonos.entrySet()) {
+            int cod = telefono.getKey();
+            if (cod == id) {
+                Telefono tele = listaTelefonos.get(cod);
+                return tele;
             }
         }
         return null;
@@ -40,10 +42,10 @@ public class TelefonoDAOImpl implements ITelefonoDAO {
 
     @Override
     public void update(Telefono telefono) {
-        for (int i = 0; i < listaTelefonos.size(); i++) {
-            Telefono c = listaTelefonos.get(i);
-            if (c.getCodigo() == telefono.getCodigo()) {
-                listaTelefonos.set(i, telefono);
+        for (Map.Entry<Integer, Telefono> telefono2 : listaTelefonos.entrySet()) {
+            int cod = telefono2.getKey();
+            if (cod == telefono.getCodigo()) {
+                listaTelefonos.replace(cod, telefono);
                 break;
             }
         }
@@ -52,18 +54,17 @@ public class TelefonoDAOImpl implements ITelefonoDAO {
 
     @Override
     public void delete(Telefono telefono) {
-        Iterator<Telefono> it = listaTelefonos.iterator();
-        while (it.hasNext()) {
-            Telefono d = it.next();
-            if (d.getCodigo() == telefono.getCodigo()) {
-                it.remove();
+        for (Map.Entry<Integer, Telefono> telefono2 : listaTelefonos.entrySet()) {
+            int cod = telefono2.getKey();
+            if (cod == telefono.getCodigo()) {
+                listaTelefonos.remove(telefono.getCodigo());
                 break;
             }
         }
     }
 
     @Override
-    public List<Telefono> findAll() {
+    public Map<Integer, Telefono> findAll() {
         return listaTelefonos;
     }
 }

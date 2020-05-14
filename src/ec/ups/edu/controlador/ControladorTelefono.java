@@ -28,21 +28,21 @@ public class ControladorTelefono {
         this.direccionDAO = direccionDAO;
     }
 
-    //llama al DAO para guardar un cliente
+    //llama al DAO para guardar un usuario
     public void registrar() {
         direccion = vistaDireccion.ingresarTelefono();
         direccionDAO.create(direccion);
         vistaDireccion.verDireccion(direccion);
     }
 
-    //llama al DAO para obtener un cliente por el id y luego los muestra en la vista
+    //llama al DAO para obtener un usuario por el correo o contraseña
     public void verDireccion() {
         int id = vistaDireccion.buscarTelefono();
         direccion = direccionDAO.read(id);
         vistaDireccion.verDireccion(direccion);
     }
 
-    //llama al DAO para actualizar un cliente
+    //llama al DAO para actualizar un usuario
     public void actualizar() {
         int codigo = vistaDireccion.pedirCodigo();
         direccion = direccionDAO.read(codigo);
@@ -54,7 +54,7 @@ public class ControladorTelefono {
 
     }
 
-    //llama al DAO para eliminar un cliente
+    //llama al DAO para eliminar un usuario
     public void eliminar() {
         int id = vistaDireccion.eliminarTelefono();
         direccion = direccionDAO.read(id);
@@ -64,9 +64,9 @@ public class ControladorTelefono {
          */
     }
 
-    //llama al DAO para obtener todos los clientes y luego los muestra en la vista
+    //llama al DAO para obtener todos los usuarios y luego los muestra en la vista
     public void verDirecciones() {
-        List<Telefono> direcciones;
+        Map<Integer, Telefono> direcciones;
         direcciones = direccionDAO.findAll();
         vistaDireccion.verTelefonos(direcciones);
     }

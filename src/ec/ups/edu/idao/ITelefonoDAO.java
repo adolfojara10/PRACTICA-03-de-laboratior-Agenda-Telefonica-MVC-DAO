@@ -22,5 +22,5 @@ public interface ITelefonoDAO {
 
     public void delete(Telefono telefono);
 
-    public List<Telefono> findAll();
+    public Map<Integer,Telefono> findAll();
 }

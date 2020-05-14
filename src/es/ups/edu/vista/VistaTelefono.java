@@ -8,6 +8,7 @@ package es.ups.edu.vista;
 import es.ups.edu.modelo.Telefono;
 import es.ups.edu.modelo.Usuario;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -107,9 +108,13 @@ public class VistaTelefono {
         System.out.println("Datos del Cliente: " + telefono);
     }
 
-    public void verTelefonos(List<Telefono> telefonos) {
-        for (Telefono direccion : telefonos) {
-            System.out.println("Datos del telefono: " + direccion);
+    public void verTelefonos(Map<Integer, Telefono> telefonos) {
+        for (Map.Entry<Integer, Telefono> telefono2 : telefonos.entrySet()) {
+            int cod = telefono2.getKey();
+            Telefono tele = telefono2.getValue();
+            System.out.println("Clave telefono: " + cod + "\nInformación del "
+                    + "telefono: " + tele.toString());
+            
         }
     }
 

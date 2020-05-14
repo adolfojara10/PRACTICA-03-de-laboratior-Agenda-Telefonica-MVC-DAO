@@ -43,12 +43,13 @@ public class ControladorUsuario {
 
     }
 
-    //llama al DAO para guardar un cliente
+    //llama al DAO para guardar un usuario
     public void registrar() {
         cliente = vistaCliente.ingresarCliente();
         clienteDAO.create(cliente);
     }
 
+    //se inicia sesion
     public Usuario iniciarSesion() {
 
         //se obtienen los datos de contraseÃ±a y correo
@@ -62,6 +63,7 @@ public class ControladorUsuario {
         return cliente;
     }
 
+    //busca telefonos de un usuario
     public void buscarTelefonos() {
         String id = vistaCliente.buscarCliente();
         cliente = clienteDAO.read(id);
@@ -73,6 +75,7 @@ public class ControladorUsuario {
         }
     }
 
+    //imprime un usuario
     public void imprimirUsuario() {
 
         String id = vistaCliente.buscarCliente();
@@ -86,7 +89,7 @@ public class ControladorUsuario {
 
     }
 
-    //llama al DAO para obtener un cliente por el id y luego los muestra en la vista
+    //llama al DAO para obtener un usuario por la cedula o correo
     public boolean verCliente() {
         String id = vistaCliente.confirmacionCedula();
         cliente = clienteDAO.read(id);
@@ -98,26 +101,26 @@ public class ControladorUsuario {
         return true;
     }
 
-    //llama al DAO para actualizar un cliente
+    //llama al DAO para actualizar un usuario
     public void actualizar() {
         cliente = vistaCliente.actualizarCliente();
         clienteDAO.update(cliente);
     }
 
-    //llama al DAO para eliminar un cliente
+    //llama al DAO para eliminar un usuario
     public void eliminar() {
         cliente = vistaCliente.eliminarCliente();
         clienteDAO.delete(cliente);
     }
 
-    //llama al DAO para obtener todos los clientes y luego los muestra en la vista
+    //para ver los usarios
     public void verClientes() {
         Map<String, Usuario> clientes;
         clientes = clienteDAO.findAll();
         vistaCliente.verClientes(clientes);
     }
 
-    //ejemplo de agregacion
+    //para ver los usuarios
     public void agregarDireccion() {
         int id = vistaDireccion.confirmarCodigo();
         direccion = direccionDAO.read(id);
