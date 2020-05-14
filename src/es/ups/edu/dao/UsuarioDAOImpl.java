@@ -12,9 +12,10 @@ import java.util.*;
 
 /**
  * clase UsuarioDAOImpl.
- * 
- * clase que implementa la inteface IUsuarioDAO y sus metodos. Aqui son implementados
- * 
+ *
+ * clase que implementa la inteface IUsuarioDAO y sus metodos. Aqui son
+ * implementados
+ *
  * @author Adolfo
  */
 public class UsuarioDAOImpl implements IUsuarioDAO {

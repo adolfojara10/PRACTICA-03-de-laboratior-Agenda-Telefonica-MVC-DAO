@@ -13,9 +13,10 @@ import java.util.*;
 
 /**
  * clase ControladorTelefono.
- * 
- * clase encargada de crear, actualizar, eliminar un telefono. Esta recibe 
+ *
+ * clase encargada de crear, actualizar, eliminar un telefono. Esta recibe
  * diferentes parametros para su correcta realizacion de metodos.
+ *
  * @author Adolfo
  */
 public class ControladorTelefono {

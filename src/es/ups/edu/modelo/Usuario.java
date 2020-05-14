@@ -9,10 +9,11 @@ import java.util.*;
 
 /**
  * clase Usuario.
- * 
- * clase encargada de crear un objeto de tipo Usuario, Atributos: cedula, nombre,
- * apellido, correo, contraseña, lista de telefonos. Metodo constructor que 
- * setea todos los datos excepto por la lista de telefonos.
+ *
+ * clase encargada de crear un objeto de tipo Usuario, Atributos: cedula,
+ * nombre, apellido, correo, contraseña, lista de telefonos. Metodo constructor
+ * que setea todos los datos excepto por la lista de telefonos.
+ *
  * @author Adolfo
  */
 public class Usuario {
@@ -104,12 +105,12 @@ public class Usuario {
             listaTelefonos.remove(index);
         }
     }
-    
+
     //imprimir telefonos
     public List<Telefono> listar() {
         return listaTelefonos;
     }
-    
+
     //buscar un telefono
     public Telefono buscar(int id) {
 

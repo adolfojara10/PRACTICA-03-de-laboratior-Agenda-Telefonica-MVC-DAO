@@ -10,9 +10,9 @@ import java.util.*;
 
 /**
  * interface ITelefonoDAO.
- * 
+ *
  * metodo de instanciar los metodos que se van a implementar en otra clase.
- * 
+ *
  * @author Adolfo
  */
 public interface ITelefonoDAO {
@@ -67,10 +67,10 @@ public interface ITelefonoDAO {
 
     /**
      * metodo findAll.
-     * 
+     *
      * metodo encargado de devolver todos los telefenos creados.
-     * 
-     * @return Map 
+     *
+     * @return Map
      */
-    public Map<Integer,Telefono> findAll();
+    public Map<Integer, Telefono> findAll();
 }

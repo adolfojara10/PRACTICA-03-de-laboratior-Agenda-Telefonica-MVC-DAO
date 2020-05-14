@@ -6,10 +6,11 @@
 package es.ups.edu.modelo;
 
 /**
- * clase Telefono. 
- * 
- * clase encargada de crear un objeto de tipo Telefono. Atributos: codigo, numero,
- * tipo, operadora. En el metodo constructor se setean todos sua datos.
+ * clase Telefono.
+ *
+ * clase encargada de crear un objeto de tipo Telefono. Atributos: codigo,
+ * numero, tipo, operadora. En el metodo constructor se setean todos sua datos.
+ *
  * @author Adolfo
  */
 public class Telefono {

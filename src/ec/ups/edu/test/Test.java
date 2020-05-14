@@ -43,7 +43,7 @@ public class Test {
                     break;
 
                 case 2:
-                    
+
                     //recibir un usuario
                     Usuario usuario = controladorUsuario.iniciarSesion();
 

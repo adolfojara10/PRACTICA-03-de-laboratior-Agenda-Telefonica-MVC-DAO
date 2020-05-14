@@ -13,9 +13,9 @@ import java.util.*;
 
 /**
  * clase TelefonoDAOImpl.
- * 
+ *
  * clase encargada de implementar los metodos de la interface ITelefonoDAO
- * 
+ *
  * @author Adolfo
  */
 public class TelefonoDAOImpl implements ITelefonoDAO {
@@ -29,7 +29,7 @@ public class TelefonoDAOImpl implements ITelefonoDAO {
     //mandar un telefono a la base datos
     @Override
     public void create(Telefono telefono) {
-        listaTelefonos.put(telefono.getCodigo(),telefono);
+        listaTelefonos.put(telefono.getCodigo(), telefono);
     }
 
     //para devolver un telefono de la base de datos

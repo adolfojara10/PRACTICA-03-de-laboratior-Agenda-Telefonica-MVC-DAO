@@ -18,9 +18,10 @@ import java.util.Map;
 
 /**
  * clase ControladorUsuario.
- * 
+ *
  * clase que llama a la vista y al dao para crear, eliminar, obtener, actualzar
  * un usuario. Ademas aqui se agregan, eliminan, editan telefonos de un usuario.
+ *
  * @author Adolfo
  */
 public class ControladorUsuario {

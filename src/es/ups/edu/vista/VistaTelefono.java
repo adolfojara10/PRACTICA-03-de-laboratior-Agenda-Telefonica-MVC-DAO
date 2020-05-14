@@ -13,11 +13,12 @@ import java.util.Scanner;
 
 /**
  * clase VistaTelefono.
- * 
+ *
  * clase encargada de la impresion del submenu cuando el usuario inicia sesion.
- * En esta se crea, edita y elimina un telefono. Se imprimen todos los telefonos,
- * los telefonos de un usuario, se pide el codigo y se confirma el codigo.
- * 
+ * En esta se crea, edita y elimina un telefono. Se imprimen todos los
+ * telefonos, los telefonos de un usuario, se pide el codigo y se confirma el
+ * codigo.
+ *
  * @author Adolfo
  */
 public class VistaTelefono {
@@ -129,7 +130,7 @@ public class VistaTelefono {
             Telefono tele = telefono2.getValue();
             System.out.println("Clave telefono: " + cod + "\nInformación del "
                     + "telefono: " + tele.toString());
-            
+
         }
     }
 

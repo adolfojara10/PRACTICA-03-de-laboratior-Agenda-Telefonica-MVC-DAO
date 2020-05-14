@@ -12,12 +12,13 @@ import java.util.Scanner;
 
 /**
  * clase VistaUsuario.
- * 
+ *
  * encargada de la imperesio en consola de menus de opciones, creación de un
  * usuario, agregar telelfono a un usuario, editar, eliminar un telefono del
  * usuario. Encargado de pedir la contraseña y el correo de la persona de que
- * desea iniciar sesion. Imprime todos los clientes de la base de datos, y 
- * un usuario que se desea buscar.
+ * desea iniciar sesion. Imprime todos los clientes de la base de datos, y un
+ * usuario que se desea buscar.
+ *
  * @author Adolfo
  */
 public class VistaUsuario {
