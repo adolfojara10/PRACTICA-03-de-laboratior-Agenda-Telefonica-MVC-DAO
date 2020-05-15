@@ -22,57 +22,57 @@ import java.util.*;
 public class ControladorTelefono {
 
     //objetos vist
-    private VistaTelefono vistaDireccion;
-    private Telefono direccion;
-    private ITelefonoDAO direccionDAO;
+    private VistaTelefono vista;
+    private Telefono tele;
+    private ITelefonoDAO telefonoDAO;
 
     // constructor
     public ControladorTelefono(VistaTelefono vistaDireccion, TelefonoDAOImpl direccionDAO) {
-        this.vistaDireccion = vistaDireccion;
-        this.direccionDAO = direccionDAO;
+        this.vista = vistaDireccion;
+        this.telefonoDAO = direccionDAO;
     }
 
     //llama al DAO para guardar un telefono
     public void registrar() {
-        direccion = vistaDireccion.ingresarTelefono();
-        direccionDAO.create(direccion);
-        vistaDireccion.verDireccion(direccion);
+        tele = vista.ingresarTelefono();
+        telefonoDAO.create(tele);
+        vista.verDireccion(tele);
     }
 
     //llama al DAO para obtener un telefono por el codigo
     public void verDireccion() {
-        int id = vistaDireccion.buscarTelefono();
-        direccion = direccionDAO.read(id);
-        vistaDireccion.verDireccion(direccion);
+        int id = vista.buscarTelefono();
+        tele = telefonoDAO.read(id);
+        vista.verDireccion(tele);
     }
 
     //llama al DAO para actualizar un telefono
     public void actualizar() {
-        int codigo = vistaDireccion.pedirCodigo();
-        direccion = direccionDAO.read(codigo);
-        if (direccion != null) {
-            vistaDireccion.verDireccion(direccion);
-            direccion = vistaDireccion.actualizarTelefono();
-            direccionDAO.update(direccion);
+        int codigo = vista.pedirCodigo();
+        tele = telefonoDAO.read(codigo);
+        if (tele != null) {
+            vista.verDireccion(tele);
+            tele = vista.actualizarTelefono();
+            telefonoDAO.update(tele);
         }
 
     }
 
     //llama al DAO para eliminar un telefono
     public void eliminar() {
-        int id = vistaDireccion.eliminarTelefono();
-        direccion = direccionDAO.read(id);
-        vistaDireccion.verDireccion(direccion);
+        int id = vista.eliminarTelefono();
+        tele = telefonoDAO.read(id);
+        vista.verDireccion(tele);
         /*
        direccionDAO.delete(direccion);
          */
     }
 
     //llama al DAO para obtener todos los telefonos y luego los muestra en la vista
-    public void verDirecciones() {
+    public void verTodosTelefonos() {
         Map<Integer, Telefono> direcciones;
-        direcciones = direccionDAO.findAll();
-        vistaDireccion.verTelefonos(direcciones);
+        direcciones = telefonoDAO.findAll();
+        vista.verTelefonos(direcciones);
     }
 
 }

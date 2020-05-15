@@ -59,7 +59,7 @@ public class Test {
                                     controladorTelefono.registrar();
                                     boolean contiene = controladorUsuario.verCliente();
                                     if (contiene == true) {
-                                        controladorUsuario.agregarDireccion();
+                                        controladorUsuario.agregarTelefono();
                                     }
                                     break;
                                 case 2:
@@ -111,7 +111,7 @@ public class Test {
 
                 case 6:
                     //para ver todos los telefonos
-                    controladorTelefono.verDirecciones();
+                    controladorTelefono.verTodosTelefonos();
                     break;
 
                 case 7:
